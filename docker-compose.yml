@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  jupyter:
+    build: jupyterlab
+    image: datawars/sourcing-lab:v1
+    ports:
+      - "5050:8888"
+    command: jupyter notebook
+    volumes:
+      - "./jupyterlab:/app"
+    x-views:
+      - name: Project
+        url: "/notebooks/Project.ipynb"
+        port: "8888"
